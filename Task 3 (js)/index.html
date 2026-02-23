@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <script>
+        function add() {
+            var a = parseInt(myform.text1.value);
+            var b = parseInt(myform.text2.value);
+            var c = a + b;
+            myform.result.value = c;
+        }
+        function sub() {
+            var a = parseInt(myform.text1.value);
+            var b = parseInt(myform.text2.value);
+            var c = a - b;
+            myform.result.value = c;
+        }
+        function mul() {
+            var a = parseInt(myform.text1.value);
+            var b = parseInt(myform.text2.value);
+            var c = a * b;
+            myform.result.value = c;
+        }
+        function div() {
+            var a = parseInt(myform.text1.value);
+            var b = parseInt(myform.text2.value);
+            if (b == 0) {
+                myform.result.value = "Can't divide by 0";
+            }
+            else {
+                var c = a / b;
+                myform.result.value = c;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form id="myform">
+        Enter number a: <input class="text-field" type="text" name="text1" placeholder="Enter number a" />
+        <br />
+        Enter number b: <input class="text-field" type="text" name="text2" placeholder="Enter number b" />
+        <br />
+        Result : <input class="text-field" type="text" id="result" placeholder="Result" readonly />
+        <br />
+        <input type="button" value="add" onclick="add()">
+        <input type="button" value="sub" onclick="sub()">
+        <input type="button" value="mul" onclick="mul()">
+        <input type="button" value="div" onclick="div()">
+    </form>
+</body>
+
+</html>

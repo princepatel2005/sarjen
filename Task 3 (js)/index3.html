@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function calc() {
+            var a = myform.text1.value;
+            var b = myform.text2.value;
+
+            if (myform.operator[0].selected) {
+                c = parseInt(a) + parseInt(b);
+                myform.result.value = c;
+            }
+            else if (myform.operator[1].selected) {
+                c = parseInt(a) - parseInt(b);
+                myform.result.value = c;
+            }
+             else if (myform.operator[2].selected) {
+                c = parseInt(a) * parseInt(b);
+                myform.result.value = c;
+            }
+            else if (myform.operator[3].selected) {
+                if (parseInt(b) == 0) {
+                    c = "Can't divide by 0";
+                    myform.result.value = c;
+                }
+                else {
+                    c = parseInt(a) / parseInt(b);
+                    myform.result.value = c;
+                }
+            }
+            else {
+                c = "Select Valid Operator";
+                myform.result.value = c;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form id="myform">
+        Enter number a: <input type="text" name="text1" placeholder="Enter number a" />
+        <br />
+        Enter number b: <input type="text" name="text2" placeholder="Enter number b"/>
+        <br />
+        Select operator:
+        <select name="operator" id="">
+            <option value="add">Addition</option>
+            <option value="sub">Subtraction</option>
+            <option value="mul">Multiplication</option>
+            <option value="div">Division</option>
+        </select>
+        <br />
+        <input type="text" id="result" placeholder="Result" readonly />
+        <input type="button" value="Answer" onclick="calc()" />
+    </form>
+</body>
+</html>
