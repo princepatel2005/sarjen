@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+
+<body>
+    <form id="myform">
+        Enter number a: <input type="text" name="text1" placeholder="Enter number a" />
+        <br />
+        Enter number b: <input type="text" name="text2" placeholder="Enter number b" />
+        <br />
+        Select operator:
+        <select name="operator">
+            <option value="add">Addition</option>
+            <option value="sub">Subtraction</option>
+            <option value="mul">Multiplication</option>
+            <option value="div">Division</option>
+        </select>
+        <br />
+        <!-- <input type="text" id="result" placeholder="Result" readonly /> -->
+        <p name="result"></p>
+        <input type="button" value="Answer" onclick="calc()" />
+    </form>
+</body>
+
+ <script>
+        function calc() {
+            var a = document.getElementsByName("text1")[0].value;
+            var b = document.getElementsByName("text2")[0].value;
+
+            if (isNaN(a) || isNaN(b)) {
+                // c = "Please enter valid numbers.";
+                // document.getElementById("result").value = c;
+                // return;
+                alert("Please enter valid numbers.")
+            }
+            else if (!a || !b) {
+                alert("Please enter number.")
+            }
+            else if (document.getElementsByName("operator")[0].selectedIndex == 0) {
+                c = parseInt(a) + parseInt(b);
+                document.getElementsByName("result")[0].innerText = c
+                // document.getElementById("result").value=c;
+            }
+            else if (document.getElementsByName("operator")[0].selectedIndex == 1) {
+                c = parseInt(a) - parseInt(b);
+                document.getElementsByName("result")[0].innerText = c
+                // document.getElementById("result").value=c;
+            }
+            else if (document.getElementsByName("operator")[0][3].selected) {
+                if (parseInt(b) == 0) {
+                    // c = "Can't divide by 0";
+                    // document.getElementById("result").value=c;
+                    alert("Can't divide by 0");
+                }
+                else {
+                    c = parseInt(a) / parseInt(b);
+                    document.getElementsByName("result")[0].innerText = c
+                    // document.getElementById("result").value=c;
+                }
+            }
+            else if (document.getElementsByName("operator")[0][2].selected) {
+                c = parseInt(a) * parseInt(b);
+                document.getElementsByName("result")[0].innerText = c
+                // document.getElementById("result").value=c;
+            }
+            // else {
+            //     c = "Select Valid Operator";
+            //     document.getElementById("result").value=c;
+            // }
+        }
+    </script>
+
+</html>

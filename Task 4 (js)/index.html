@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h2>
+        All Products
+    </h2>
+    <div class="main">
+        <div id="card-section">
+            <input type="button" value="Add to Cart">
+        </div>
+    </div>
+    <script>
+        var product = [
+            {
+                productImage: "images/iphone.jpg",
+                productName: "Iphone",
+                productPrice: "$1000",
+                productDescription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ipsa, incidunt odit quibusdam minus ex consectetur inventore rem voluptatem non autem nobis dolores et?"
+            },
+            {
+                productImage: "images/iphone.jpg",
+                productName: "Iphone",
+                productPrice: "$1000",
+                productDescription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ipsa, incidunt odit quibusdam minus ex consectetur inventore rem voluptatem non autem nobis dolores et?"
+            },
+            {
+                productImage: "images/iphone.jpg",
+                productName: "abc",
+                productPrice: "$1000",
+                productDescription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ipsa, incidunt odit quibusdam minus ex consectetur inventore rem voluptatem non autem nobis dolores et?"
+            },
+            {
+                productImage: "images/iphone.jpg",
+                productName: "Iphone",
+                productPrice: "$1000",
+                productDescription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ipsa, incidunt odit quibusdam minus ex consectetur inventore rem voluptatem non autem nobis dolores et?"
+            },
+            {
+                productImage: "images/iphone.jpg",
+                productName: "Iphone",
+                productPrice: "$1000",
+                productDescription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ipsa, incidunt odit quibusdam minus ex consectetur inventore rem voluptatem non autem nobis dolores et?"
+            },
+            {
+                productImage: "images/iphone.jpg",
+                productName: "Iphone",
+                productPrice: "$1000",
+                productDescription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ipsa, incidunt odit quibusdam minus ex consectetur inventore rem voluptatem non autem nobis dolores et?"
+            },
+            {
+                productImage: "images/iphone.jpg",
+                productName: "xyz",
+                productPrice: "$7000",
+                productDescription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ipsa, incidunt odit quibusdam minus ex consectetur inventore rem voluptatem non autem nobis dolores et?"
+            },
+
+        ];
+
+        var a = "";
+
+        for (i in product) {
+            a += "<div class='card'>";
+            a += "<div class='img-section'>";
+            a += `<img src="${product[i].productImage}"><br/>`;
+            a += "</div>";
+            a += "<div class='des-section'>";
+            a += `<strong>Product Name:</strong> ${product[i].productName}<br/>`;
+            a += `<strong>Product Price:</strong> ${product[i].productPrice}<br/>`;
+            a += `<p>${product[i].productDescription}</p>`;
+            a += "<div class='btn-section'><input type='button' value='Add to Cart' class='cart-btn'/> <input type='button' value='View Details' class='detail-btn'/></div>";
+            a += "</div>";
+            a += "</div>";
+        }
+        document.getElementById("card-section").innerHTML = a;
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+
+<body>
+    <div class="main">
+        <form id="myform">
+            Enter number a: <input type="text" name="text1" placeholder="Enter number a" />
+            <br />
+            Enter number b: <input type="text" name="text2" placeholder="Enter number b" />
+            <br />
+            Select operator:
+            <br />
+            <input type="radio" id="add" name="calculator" />
+            Adddition
+            <br />
+            <input type="radio" id="sub" name="calculator" />
+            Subtraction
+            <br />
+            <input type="radio" id="mul" name="calculator" />
+            Multiplication
+            <br />
+            <input type="radio" id="div" name="calculator" />
+            Division
+            <br />
+            <br />
+            <input type="text" id="result" placeholder="Result" read bonly />
+            <input type="button" value="Answer" onclick="calc()" />
+        </form>
+    </div>
+</body>
+
+ <script>
+        function calc() {
+            var a = document.getElementsByName("text1")[0].value;
+            var b = document.getElementsByName("text2")[0].value;
+
+            if (isNaN(a) || isNaN(b)) {
+                alert("Please enter valid numbers.")
+            }
+            else if (!a || !b) {
+                alert("Please enter number.")
+            }
+            else if (document.getElementById("add").checked) {
+                c = parseInt(a) + parseInt(b);
+                document.getElementById("result").value = c;
+            }
+            else if (document.getElementById("sub").checked) {
+                c = parseInt(a) - parseInt(b);
+                document.getElementById("result").value = c;
+            }
+            else if (document.getElementById("div").checked) {
+                if (parseInt(b) == 0) {
+                    // c = "Can't divide by 0";
+                    // document.getElementById("result").value = c;
+                    alert("Can't divide by 0.")
+                }
+                else {
+                    c = parseInt(a) / parseInt(b);
+                    document.getElementById("result").value = c;
+                }
+            }
+            else if (document.getElementById("mul").checked) {
+                c = parseInt(a) * parseInt(b);
+                document.getElementById("result").value = c;
+            }
+        }
+    </script>
+
+</html>

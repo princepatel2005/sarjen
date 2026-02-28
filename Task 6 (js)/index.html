@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="main">
+        <h2>GST Calculator</h2>
+        Amount: <input type="text" name="text1" placeholder="Enter Amount" />
+        <br /><br />
+        GST: <select name="gst">
+            <option value="0.03">3%</option>
+            <option value="0.05">5%</option>
+            <option value="0.18">18%</option>
+            <option value="0.40">40%</option>
+        </select>
+        <br /><br />
+        TAX:<select name="tax">
+            <option value="exclusive">Exclusive</option>
+            <option value="inclusive">Inclusive</option>
+        </select>
+        <br /><br />
+        Original amount:<p id="original"></p>
+        GST Amount (SGST+CGST):<p id="result"></p>
+        Final Amount:<p id="total"></p>
+        <button value="Result" onclick="calculateGst()">Result</button>
+    </div>
+</body>
+<script>
+    function calculateGst() {
+        var amount = document.getElementsByName("text1")[0].value;
+        var key = document.getElementsByName("gst")[0].selectedIndex;
+        var gst = document.getElementsByName("gst")[0][key].value;
+        if (document.getElementsByName("tax")[0][0].selected == true) {
+            var result = parseFloat(amount) * (gst);
+            var total = parseFloat(amount) + result;
+            document.getElementById("original").innerText = amount;
+            document.getElementById("result").innerHTML = `${result} (CGST:${result / 2} SGST:${result / 2})`;
+            document.getElementById("total").innerText = total
+            document.getElementById("total").style.color = 'red';
+        }
+
+        else if (document.getElementsByName("tax")[0][1].selected == true) {
+            var result = parseFloat(amount) / (1 + parseFloat(gst));
+            var total = parseFloat(amount);
+            var gstAmount = parseFloat(total) - parseFloat(result);
+            document.getElementById("original").innerText = result;
+            document.getElementById("result").innerText = `${gstAmount} (CGST:  ${gstAmount / 2} SGST:${gstAmount / 2})`;
+            document.getElementById("total").innerText = total;
+            document.getElementById("total").style.color = 'red';
+        }
+    }
+</script>
+
+</html>
