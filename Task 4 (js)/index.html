@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dynamic Cards</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <h2>
         All Products
     </h2>
-    <div class="main">
+    <div class="container">
         <div id="card-section">
             <input type="button" value="Add to Cart">
         </div>
@@ -32,7 +32,7 @@
             },
             {
                 productImage: "images/iphone.jpg",
-                productName: "abc",
+                productName: "xyz",
                 productPrice: "$1000",
                 productDescription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ipsa, incidunt odit quibusdam minus ex consectetur inventore rem voluptatem non autem nobis dolores et?"
             },
@@ -51,25 +51,26 @@
           
         ];
 
-        var a = "";
+        var cards = "";
 
         for (i in product) {
-            a += "<div class='card'>";
-            a += "<div class='img-section'>";
-            a += `<img src="${product[i].productImage}"><br/>`;
-            a += "</div>";
-            a += "<div class='des-section'>";
-            a += `<strong>Product Name:</strong> ${product[i].productName}<br/>`;
-            a += `<strong>Product Price:</strong> ${product[i].productPrice}<br/>`;
-            a += `<p>${product[i].productDescription}</p>`;
-            a += "<div class='btn-section'><input type='button' value='Add to Cart' class='cart-btn'/> <input type='button' value='View Details' class='detail-btn'/></div>";
-            a += "</div>";
-            a += "</div>";
+            cards += "<div class='card'>";
+            cards += "<div class='img-section'>";
+            cards += `<img src="${product[i].productImage}"><br/>`;
+            cards += "</div>";
+            cards += "<div class='des-section'>";
+            cards += `<strong>Product Name:</strong> ${product[i].productName}<br/>`;
+            cards += `<strong>Product Price:</strong> ${product[i].productPrice}<br/>`;
+            cards += `<p>${product[i].productDescription}</p>`;
+            cards += "<div class='btn-section'><input type='button' value='Add to Cart' class='cart-btn'/> <input type='button' value='View Details' class='detail-btn'/></div>";
+            cards += "</div>";
+            cards += "</div>";
         }
-        document.getElementById("card-section").innerHTML = a;
+        document.getElementById("card-section").innerHTML = cards;
     </script>
 
 </body>
 
 </html>
+
 
