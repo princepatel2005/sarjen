@@ -1,95 +1,102 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
 </head>
-
 <body>
-    <form id="myform">
-        Enter number a: <input type="text" name="text1" placeholder="Enter number a" />
-        <br />
-        Enter number b: <input type="text" name="text2" placeholder="Enter number b" />
-        <br />
-        <!-- <input type="text" id="result" placeholder="Result" readonly /> -->
-        <p id="result"></p>
-        <br />
-        <input type="button" value="add" onclick="add()">
-        <input type="button" value="sub" onclick="sub()">
-        <input type="button" value="mul" onclick="mul()">
-        <input type="button" value="div" onclick="div()">
-    </form>
-</body>
+    <form id="calcForm">
 
-<script>
-        function add() {
-            var a = document.getElementsByName("text1")[0].value;
-            var b = document.getElementsByName("text2")[0].value;
-            if (isNaN(a) || isNaN(b)) {
-                alert("Please enter valid numbers.")
+        Enter Number 1:
+        <input type="text" name="num1" placeholder="Enter number 1" />
+        <br><br>
+        Enter Number 2:
+        <input type="text" name="num2" placeholder="Enter number 2" />
+        <br><br>
+        <!-- <input type="text" id="output" placeholder="Result" readonly /> -->
+        <p id="output"></p>
+        <br>
+
+        <input type="button" value="Add" onclick="addition()">
+        <input type="button" value="Sub" onclick="subtraction()">
+        <input type="button" value="Mul" onclick="multiplication()">
+        <input type="button" value="Div" onclick="division()">
+
+    </form>
+    
+    <script>
+
+        function addition() {
+
+            var x = document.getElementsByName("num1")[0].value;
+            var y = document.getElementsByName("num2")[0].value;
+            if (isNaN(x) || isNaN(y)) {
+                alert("Please enter valid numbers.");
             }
-            else if (!a || !b) {
-                alert("Please enter number.")
+            else if (!x || !y) {
+                alert("Please enter number.");
             }
             else {
-                var c = parseInt(a) + parseInt(b);
-                document.getElementById("result").innerText = c
-                // document.getElementById("result").value = c;
+                var result = parseInt(x) + parseInt(y);
+                document.getElementById("output").innerText = result;
             }
         }
-        function sub() {
-            var a = document.getElementsByName("text1")[0].value;
-            var b = document.getElementsByName("text2")[0].value;
-            if (isNaN(a) || isNaN(b)) {
-                alert("Please enter valid numbers.")
+
+        function subtraction() {
+            
+            var x = document.getElementsByName("num1")[0].value;
+            var y = document.getElementsByName("num2")[0].value;
+            if (isNaN(x) || isNaN(y)) {
+                alert("Please enter valid numbers.");
             }
-            else if (!a || !b) {
-                alert("Please enter number.")
+            else if (!x || !y) {
+                alert("Please enter number.");
             }
             else {
-                var c = parseInt(a) - parseInt(b);
-                document.getElementById("result").innerText = c
-                // document.getElementById("result").value = c;
+                var result = parseInt(x) - parseInt(y);
+                document.getElementById("output").innerText = result;
             }
         }
-        function mul() {
-            var a = document.getElementsByName("text1")[0].value;
-            var b = document.getElementsByName("text2")[0].value;
-            if (isNaN(a) || isNaN(b)) {
-                alert("Please enter valid numbers.")
+
+        function multiplication() {
+
+            var x = document.getElementsByName("num1")[0].value;
+            var y = document.getElementsByName("num2")[0].value;
+            if (isNaN(x) || isNaN(y)) {
+                alert("Please enter valid numbers.");
             }
-            else if (!a || !b) {
-                alert("Please enter number.")
+            else if (!x || !y) {
+                alert("Please enter number.");
             }
             else {
-                var c = parseInt(a) * parseInt(b);
-                document.getElementById("result").innerText = c
-                // document.getElementById("result").value = c;
+                var result = parseInt(x) * parseInt(y);
+                document.getElementById("output").innerText = result;
             }
         }
-        function div() {
-            var a = document.getElementsByName("text1")[0].value;
-            var b = document.getElementsByName("text2")[0].value;
-            if (isNaN(a) || isNaN(b)) {
-                alert("Please enter valid numbers.")
+
+        function division() {
+
+            var x = document.getElementsByName("num1")[0].value;
+            var y = document.getElementsByName("num2")[0].value;
+            if (isNaN(x) || isNaN(y)) {
+                alert("Please enter valid numbers.");
             }
-            else if (!a || !b) {
-                alert("Please enter number.")
+            else if (!x || !y) {
+                alert("Please enter number.");
             }
             else {
-                if (b == 0) {
+                if (y == 0) {
                     alert("Can't divide by 0");
                 }
                 else {
-                    var c = parseInt(a) / parseInt(b);
-                    document.getElementById("result").innerText = c
-                    // document.getElementById("result").value = c;
+                    var result = parseInt(x) / parseInt(y);
+                    document.getElementById("output").innerText = result;
                 }
             }
         }
+
     </script>
 
+</body>
 </html>
