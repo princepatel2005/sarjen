@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Manager</title>
+    <style>
+        body {
+            font-family: Arial;
+        }
+        .box {
+            width: 300px;
+            margin: 50px auto;
+        }
+        .task {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+        }
+        button {
+            margin-left: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>Task Manager</h2>
+
+    <input type="text" id="taskInput" placeholder="Enter task">
+    <button onclick="saveTask()" id="saveBtn">Add</button>
+
+    <div id="taskList"></div>
+</div>
+
+<script>
+    // Store tasks in array
+    var tasks = JSON.parse(localStorage.getItem("myTasks")) || [];
+
+    var editPosition = -1;
+
+    function showTasks() {
+        var output = "";
+
+        for (var i = 0; i < tasks.length; i++) {
+            output += `
+                <div class="task">
+                    ${tasks[i]}
+                    <div>
+                        <button onclick="editTask(${i})">Edit</button>
+                        <button onclick="deleteTask(${i})">Delete</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        document.getElementById("taskList").innerHTML = output;
+    }
+
+    function saveTask() {
+        var input = document.getElementById("taskInput").value;
+
+        if (input == "") {
+            alert("Please enter a task");
+            return;
+        }
+
+        if (editPosition == -1) {
+            tasks.push(input);
+        } else {
+            tasks[editPosition] = input;
+            editPosition = -1;
+            document.getElementById("saveBtn").innerText = "Add";
+        }
+
+        localStorage.setItem("myTasks", JSON.stringify(tasks));
+        document.getElementById("taskInput").value = "";
+        showTasks();
+    }
+
+    function editTask(index) {
+        document.getElementById("taskInput").value = tasks[index];
+        editPosition = index;
+        document.getElementById("saveBtn").innerText = "Update";
+    }
+
+    function deleteTask(index) {
+        tasks.splice(index, 1);
+        localStorage.setItem("myTasks", JSON.stringify(tasks));
+        showTasks();
+    }
+
+    // Show tasks when page loads
+    showTasks();
+</script>
+
+</body>
+</html>
