@@ -35,12 +35,14 @@
             };
 
             function Allremove(){
-            localStorage.clear("count", count);
-            document.getElementById("count").innerText = "empty";
+            localStorage.removeItem("count");
+            count = 0;                       
+            document.getElementById("count").innerText = count;
             };
     </script>
 
 
 </body>
+
 
 </html>
