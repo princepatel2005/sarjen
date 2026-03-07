@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student Records</title>
+</head>
+
+<body>
+
+<h3> Students Database</h3>
+
+<table border="1" id="tbl">
+<tr>
+    <th>Student Name</th>
+    <th>Course</th>
+    <th>Semester</th>
+    <th>Preferred Field</th>
+    <th>Subjects</th>
+    <th>Action</th>
+</tr>
+</table>
+
+<script>
+
+var data = "";
+var list;
+
+if(localStorage.length == 0){
+    list = [];
+}
+
+list = JSON.parse(localStorage.getItem("studentList"));
+
+for(var i=0;i<list.length;i++){
+
+    var subjects = list[i].subjects.join(", ");
+
+    data += "<tr>";
+
+    data += "<td>"+list[i].studentName+"</td>";
+    data += "<td>"+list[i].courseName+"</td>";
+    data += "<td>"+list[i].semester+"</td>";
+    data += "<td>"+list[i].preferredField+"</td>";
+    data += "<td>"+subjects+"</td>";
+
+    data += "<td>";
+    data += "<button onclick='editData("+i+")'>Edit</button>";
+    data += "<button onclick='deleteData("+i+")'>Delete</button>";
+    data += "</td>";
+
+    data += "</tr>";
+}
+
+document.getElementById("tbl").innerHTML += data;
+
+
+function editData(i){
+
+    localStorage.setItem("editId",i);
+
+    location = "index.html";
+
+}
+
+
+function deleteData(i){
+
+    var newList = [];
+
+    for(var j=0;j<list.length;j++){
+
+        if(j != i){
+
+            newList.push(list[j]);
+
+        }
+
+    }
+
+    list = newList;
+
+    localStorage.setItem("studentList",JSON.stringify(list));
+
+    location.reload();
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Form</title>
+
+    <style>
+        body{
+            font-family: Arial;
+        }
+
+        .box{
+            width:300px;
+            border:1px solid gray;
+            padding:10px;
+            margin:auto;
+            margin-top:40px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select{
+            width:95%;
+            margin-bottom:8px;
+            padding:4px;
+        }
+
+        button{
+            padding:5px 10px;
+        }
+
+        .option{
+            margin-bottom:5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h3>Student Details</h3>
+
+<label>Student Name</label><br>
+<input type="text" id="sname">
+
+<label>Course</label><br>
+<select id="course">
+<option value="B-Tech">B-Tech</option>
+<option value="BCA">BCA</option>
+<option value="BBA">BBA</option>
+<option value="BCom">BCom</option>
+</select>
+
+<label>Semester</label><br>
+<input type="number" id="sem">
+
+<label>Preferred Field</label><br>
+
+<div class="option">
+<input type="radio" name="field" value="Web Development"> Web Development
+</div>
+
+<div class="option">
+<input type="radio" name="field" value="App Development"> App Development
+</div>
+
+<div class="option">
+<input type="radio" name="field" value="Data Science"> Data Science
+</div>
+
+<br>
+
+<label>Subjects</label><br>
+
+<div class="option">
+<input type="checkbox" name="sub" value="Java"> Java
+</div>
+
+<div class="option">
+<input type="checkbox" name="sub" value="Python"> Python
+</div>
+
+<div class="option">
+<input type="checkbox" name="sub" value="JavaScript"> JavaScript
+</div>
+
+<div class="option">
+<input type="checkbox" name="sub" value="DBMS"> DBMS
+</div>
+
+<div class="option">
+<input type="checkbox" name="sub" value="Networking"> Networking
+</div>
+
+<br>
+
+<button id="btnsave" onclick="saveData()">Save</button>
+
+<br><br>
+
+<a href="data.html">View Data</a>
+
+</div>
+
+<script>
+
+function saveData(){
+
+    var name = document.getElementById("sname").value;
+    var course = document.getElementById("course").value;
+    var sem = document.getElementById("sem").value;
+
+    var field;
+
+    if(document.getElementsByName("field")[0].checked){
+        field="Web Development";
+    }
+    else if(document.getElementsByName("field")[1].checked){
+        field="App Development";
+    }
+    else{
+        field="Data Science";
+    }
+
+    var subjects=[];
+    var i;
+
+    for(i=0;i<5;i++){
+        if(document.getElementsByName("sub")[i].checked){
+            subjects.push(document.getElementsByName("sub")[i].value);
+        }
+    }
+
+    var obj={
+        studentName:name,
+        courseName:course,
+        semester:sem,
+        preferredField:field,
+        subjects:subjects
+    }
+
+    var list = JSON.parse(localStorage.getItem("studentList"));
+
+    if(list==null){
+        list=[];
+    }
+
+    list.push(obj);
+
+    alert("Record Saved");
+
+    localStorage.setItem("studentList",JSON.stringify(list));
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Timer</title>
+
+    <style>
+        body{
+            font-family: Arial;
+        }
+
+        .box{
+            width:200px;
+            border:1px solid gray;
+            padding:10px;
+            margin:auto;
+            margin-top:80px;
+            text-align:center;
+        }
+
+        .number{
+            font-size:30px;
+            margin-bottom:10px;
+        }
+
+        button{
+            padding:4px 8px;
+            margin:3px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Timer</h2>
+
+<div class="number" id="num">0</div>
+
+<button onclick="runTimer()">Run</button>
+<button onclick="pauseTimer()">Pause</button>
+<button onclick="resetTimer()">Reset</button>
+
+</div>
+
+<script>
+
+var count = 0;
+var timer;
+
+function runTimer(){
+
+    timer = setInterval(function(){
+
+        count++;
+
+        document.getElementById("num").innerHTML = count;
+
+        if(count == 10){
+            resetTimer();
+        }
+
+    },1000);
+
+}
+
+function pauseTimer(){
+
+    clearInterval(timer);
+
+}
+
+function resetTimer(){
+
+    clearInterval(timer);
+
+    count = 0;
+
+    document.getElementById("num").innerHTML = count;
+
+}
+
+</script>
+
+</body>
+</html>
