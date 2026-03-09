@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Account</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+        }
+
+        .register-box {
+            width: 280px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 15px;
+            border: 1px solid gray;
+        }
+
+        input {
+            width: 95%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 5px 10px;
+        }
+
+        a {
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="register-box">
+        <h3>Sign Up</h3>
+
+        <label>Full Name</label><br>
+        <input type="text" id="fullname"><br>
+
+        <label>Email</label><br>
+        <input type="text" id="useremail"><br>
+
+        <label>Password</label><br>
+        <input type="password" id="userpass"><br>
+
+        <button onclick="saveUser()">Register</button>
+        <br><br>
+
+        <span>Already have account? <a href="Loginpage.html">Login</a></span>
+    </div>
+
+<script>
+
+    function saveUser() {
+
+        var full = document.getElementById("fullname").value;
+        var mail = document.getElementById("useremail").value;
+        var pass = document.getElementById("userpass").value;
+
+        var existing = localStorage.getItem("data");
+
+        if (existing != null) {
+            existing = JSON.parse(existing);
+
+            if (existing.email == mail) {
+                alert("User already registered");
+                window.location = "Loginpage.html";
+                return;
+            }
+        }
+
+        var userData = {
+            name: full,
+            email: mail,
+            password: pass
+        };
+
+        localStorage.setItem("data", JSON.stringify(userData));
+
+        alert("Registration Successful !");
+        window.location = "Loginpage.html";
+    }
+
+</script>
+
+</body>
+</html>

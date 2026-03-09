@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+</head>
+<body>
+
+    <h1 id="count">0</h1>
+
+    <input type="button" onclick="increment()" value="Increment" />
+    <input type="button" onclick="decrement()" value="Decrement" />
+    <input type="button" onclick="Allremove()" value="ALLremove"/>
+
+     <script>
+        // Get value from localStorage OR set 0
+        let count = localStorage.getItem("count") || 0;
+
+        // Show initial value
+        document.getElementById("count").innerText = count;
+
+        
+            function increment() {
+            count++;
+            document.getElementById("count").innerText = count;
+            localStorage.setItem("count", count);
+            };
+
+        
+            function decrement() {
+            count--;
+            document.getElementById("count").innerText = count;
+            localStorage.setItem("count", count);
+            };
+
+            function Allremove(){
+            localStorage.removeItem("count");  // remove only count
+            count = 0;                        // reset variable
+            document.getElementById("count").innerText = count;
+            };
+    </script>
+
+
+</body>
+
+</html>

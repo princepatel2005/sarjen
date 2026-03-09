@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign In</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #eeeeee;
+        }
+
+        .login-box {
+            width: 280px;
+            margin: 60px auto;
+            background-color: white;
+            padding: 15px;
+            border: 1px solid gray;
+        }
+
+        input {
+            width: 95%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 5px 10px;
+        }
+
+        a {
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-box">
+        <h3>Login Here</h3>
+
+        <label>Email</label><br>
+        <input type="text" id="userEmail"><br>
+
+        <label>Password</label><br>
+        <input type="password" id="userPass"><br>
+
+        <button onclick="checkLogin()">Login</button>
+        <br><br>
+
+        <span>New User ? <a href="Registerpage.html">Create Account</a></span>
+    </div>
+
+<script>
+
+    function checkLogin() {
+
+        var storedData = localStorage.getItem("data");
+
+        if (storedData == null) {
+            alert("No user found. Please register first.");
+            return;
+        }
+
+        storedData = JSON.parse(storedData);
+
+        var emailInput = document.getElementById("userEmail").value;
+        var passInput = document.getElementById("userPass").value;
+
+        if (emailInput == storedData.email && passInput == storedData.password) {
+            alert("Login Successful");
+            window.location = "Homepage.html";
+        } else {
+            alert("Invalid Email or Password");
+        }
+    }
+
+</script>
+
+</body>
+</html>

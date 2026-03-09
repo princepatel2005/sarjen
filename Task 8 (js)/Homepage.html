@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f0f0f0;
+        }
+
+        .box {
+            width: 300px;
+            background-color: white;
+            padding: 15px;
+            margin: 50px auto;
+            border: 1px solid gray;
+        }
+
+        input {
+            width: 95%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 5px 10px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <h3>Account Profile</h3>
+
+        <label>Name:</label><br>
+        <input type="text" id="name"><br>
+
+        <label>Email:</label><br>
+        <input type="email" id="email"><br>
+
+        <label>Password:</label><br>
+        <input type="password" id="password"><br>
+
+        <button onclick="saveData()">Save</button>
+        <button onclick="deleteData()">Delete</button>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+<script>
+
+    function showData() {
+        var user = localStorage.getItem("data");
+
+        if (user != null) {
+            user = JSON.parse(user);
+
+            document.getElementById("name").value = user.name;
+            document.getElementById("email").value = user.email;
+            document.getElementById("password").value = user.password;
+        }
+    }
+
+    function saveData() {
+        var user = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            password: document.getElementById("password").value
+        };
+
+        localStorage.setItem("data", JSON.stringify(user));
+        alert("Profile saved !");
+    }
+
+    function deleteData() {
+        var confirmDelete = confirm("Delete your profile?");
+        if (confirmDelete) {
+            localStorage.clear();
+            alert("Profile Deleted");
+            window.location = "Register.html";
+        }
+    }
+
+    function logout() {
+        window.location = "Login.html";
+    }
+
+    showData();
+
+</script>
+
+</body>
+</html>
