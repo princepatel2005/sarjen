@@ -1,0 +1,91 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+}
+
+/* Main layout (top to bottom) */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  gap: 20px;
+}
+
+/* Counter wrapper */
+.counter-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* Common box/card style */
+.counter-box,
+.card {
+  width: 280px;
+  background: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* Counter value */
+.counter-value {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+/* Input fields */
+input {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Buttons (gray theme) */
+button {
+  padding: 8px;
+  margin-top: 8px;
+  background: #6c757d;   /* gray */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Button hover */
+button:hover {
+  background: #5a6268;
+}
+
+/* Counter button group */
+.btn-group {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.btn-group button {
+  flex: 1;
+}
+
+/* Message / error */
+.message,
+.error {
+  color: red;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+/* Result */
+.result {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+}
