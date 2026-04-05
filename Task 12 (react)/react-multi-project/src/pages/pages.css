@@ -1,0 +1,175 @@
+.page h2 {
+  margin-bottom: 15px;
+}
+
+.page input,
+.page select {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.page button {
+  padding: 8px 12px;
+  margin-top: 10px;
+  border: none;
+  background: #333;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.page button:hover {
+  background: #555;
+}
+
+/* Calculator Display */
+.calc-display {
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  text-align: right;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Grid Layout */
+.calc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+/* Make clear button full width */
+.calc-grid .full {
+  grid-column: span 4;
+}
+
+/* GST Result Box */
+.gst-result {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  background: #f1f5f9;
+}
+
+/* Dark Mode */
+body.dark .gst-result {
+  background: #1e293b;
+}
+
+/* Form layout */
+.form-group {
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 14px;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+/* Result box */
+.gst-result {
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #f1f5f9;
+}
+
+/* Row layout */
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 6px 0;
+  font-weight: 500;
+}
+
+/* Dark mode */
+body.dark .gst-result {
+  background: #1e293b;
+}
+
+.todo-actions {
+  display: flex;
+  gap: 6px;
+}
+
+/* Edit button */
+.todo-actions button {
+  background: #3b82f6;
+  color: white;
+}
+
+.todo-actions button:hover {
+  background: #2563eb;
+}
+
+.error{
+    color: red;
+}
+
+/* Fix radio alignment */
+.radio-group {
+  display: flex;
+  gap: 12px;          /* reduce space between Male & Female */
+  align-items: center;
+}
+
+/* Keep radio + text together */
+.radio-group label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;           /* VERY small gap between radio & text */
+  cursor: pointer;
+}
+
+/* Remove default spacing */
+.radio-group input {
+  margin: 0;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.news-card {
+  padding: 12px;
+  border-radius: 10px;
+  background: #f1f5f9;
+}
+
+.news-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.news-card h3 {
+  font-size: 16px;
+  margin: 8px 0;
+}
+
+.news-card p {
+  font-size: 14px;
+  color: #555;
+}
+
+.news-card a {
+  display: inline-block;
+  margin-top: 6px;
+  color: blue;
+  font-size: 14px;
+}
+
+body.dark .news-card {
+  background: #1e293b;
+}

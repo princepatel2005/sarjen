@@ -1,0 +1,20 @@
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  background: #222;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.navbar a:hover {
+  background: #555;
+}
